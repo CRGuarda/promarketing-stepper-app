@@ -13,7 +13,7 @@ export const Stepper = ({
   isLastStep: (value: boolean) => void
 }) => {
   const childrensCount = Children.count(children)
-  const childrens = Children.map(children, (child, index) => {
+  const clonedChildrens = Children.map(children, (child, index) => {
     if (isValidElement(child)) return cloneElement(child as JSX.Element, { activeStep, index })
     return child
   })
@@ -25,7 +25,7 @@ export const Stepper = ({
 
   return (
     <div className={`w-full grid gap-3 md:gap-10 grid-flow-col justify-items-center relative justify-between`}>
-      {childrens}
+      {clonedChildrens}
       <div className={`absolute top-2/4 w-[99%] border border-[#E8E8E8] `}>
         <hr
           className={`absolute top-[-1px] border border-[#EDFBD8] transition-all duration-500`}

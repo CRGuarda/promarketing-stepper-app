@@ -16,6 +16,8 @@ If you want check my repo, you will need start on `src/app/page.tsx`. The `layou
 
 ## Learn More
 
+By default are 5 Steps and the initialStep is 0 (first step). You can change this on `page.tsx`.
+
 This (**basic**) project is builded with React components (I didn't use third-party libraries for the logic of the Stepper).
 
 I purposely didn't use FontAwesome as the SVG is needed in detail to be able to try to give the steps dynamic transitions.

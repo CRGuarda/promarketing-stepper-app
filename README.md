@@ -12,6 +12,8 @@ yarn dev
 pnpm dev
 ```
 
+If you want check my repo, you will need start on `src/app/page.tsx`. The `layout.tsx` only have the next/font import for Poppins font and the metadata for Title and Description of the page.
+
 ## Learn More
 
 This (**basic**) project is builded with React components (I didn't use third-party libraries for the logic of the Stepper).

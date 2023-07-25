@@ -1,4 +1,4 @@
-import { ActiveIcon, DefaultIcon, InactiveIcon } from '@/components/Icons'
+import { ActiveIcon, DefaultIcon } from '@/components/Icons'
 
 export const Step = ({
   label,
@@ -17,9 +17,9 @@ export const Step = ({
     <div className={`flex flex-col items-center z-10 hover:cursor-pointer`} onClick={onClick}>
       {isSuccess ? <DefaultIcon /> : <ActiveIcon index={index} isActive={isActive} />}
       <span
-        className={`absolute top-[40px] text-xs sm:text-base ${(isSuccess || isActive) && `text-green-500`} ${
-          isActive && `font-extrabold`
-        } text-center`}
+        className={`absolute top-[40px] text-xs sm:text-base ${
+          isSuccess || isActive ? `text-green-500` : `text-[#909090]`
+        } ${isActive && `font-extrabold`} text-center`}
       >
         {label}
       </span>

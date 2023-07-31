@@ -19,11 +19,12 @@ export default function Home() {
         isFirstStep={(value) => setIsFirstStep(value)}
         isLastStep={(value) => setIsLastStep(value)}
       >
-        <Step label='Personal Info' onClick={() => setActiveStep(0)} />
-        <Step label='Seat' onClick={() => setActiveStep(1)} />
-        <Step label='Review' onClick={() => setActiveStep(2)} />
-        <Step label='Payment' onClick={() => setActiveStep(3)} />
-        <Step label='Confirmation' onClick={() => setActiveStep(4)} />
+        <Step label='Personal Info' onClick={() => setActiveStep(0)}>1</Step> 
+        <Step label='Seat' onClick={() => setActiveStep(1)}>2</Step>
+        <Step label='Review' onClick={() => setActiveStep(2)}>3</Step>
+        <Step label='Payment' onClick={() => setActiveStep(3)}>4</Step>
+        <Step label='Confirmation' onClick={() => setActiveStep(4)}>5</Step>
+        <Step label='Confirmation' onClick={() => setActiveStep(5)}>ab</Step>
       </Stepper>
       <div className='w-full flex justify-around mt-32'>
         <Button title='Atrás' onClick={handlePrev} disabled={isFirstStep} />

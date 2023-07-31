@@ -21,7 +21,8 @@ export const DefaultIcon = () => (
   </svg>
 )
 
-export const ActiveIcon = ({ index, isActive }: { index: number; isActive: boolean }) => (
+export const ActiveIcon = ({ index='0', isActive }: { index?: string; isActive: boolean }) => {
+  return (
   <div className='relative'>
     <svg width={32} height={32} viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'>
       <rect
@@ -48,19 +49,7 @@ export const ActiveIcon = ({ index, isActive }: { index: number; isActive: boole
         isActive ? `text-[#22C55E]` : `text-[#909090]`
       }`}
     >
-      {index + 1}
+      {isNaN(+index)?0:+index+1}
     </span>
   </div>
-)
-
-/* export const InactiveIcon = ({ index }: { index: number }) => (
-  <div className='relative'>
-    <svg width={32} height={32} viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'>
-      <rect width={32} height={32} rx={16} fill='#E8E8E8' />
-    </svg>
-    <span className='absolute  text-[14px] top-0 w-5 text-center translate-x-[30%] translate-y-[29%] text-[#909090]'>
-      {index + 1}
-    </span>
-  </div>
-)
- */
+)}

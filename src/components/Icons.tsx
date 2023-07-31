@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+
 export const DefaultIcon = () => (
   <svg
     width={32}
@@ -21,35 +24,84 @@ export const DefaultIcon = () => (
   </svg>
 )
 
-export const ActiveIcon = ({ index='0', isActive }: { index?: string; isActive: boolean }) => {
+export const ActiveIcon = ({ index, isActive }: { index?: string; isActive: boolean }) => {
+  if (!index) {
+    return (
+      <svg
+        width={15}
+        height={15}
+        viewBox='0 0 15 15'
+        fill='none'
+        className='relative mt-2'
+        xmlns='http://www.w3.org/2000/svg'
+      >
+        <path
+          className='transition-all duration-500'
+          x={0.5}
+          y={0.5}
+          width={31}
+          height={31}
+          rx={15.5}
+          fill={isActive ? '#22C55E' : '#E8E8E8'}
+          d='M7.5 0.234A7.266 7.266 0 0 1 14.766 7.5 7.266 7.266 0 0 1 7.5 14.766 7.266 7.266 0 0 1 0.234 7.5 7.266 7.266 0 0 1 7.5 0.234z'
+        />
+        <path
+          className='transition-all duration-500'
+          x={0.5}
+          y={0.5}
+          width={31}
+          height={31}
+          rx={15.5}
+          stroke={isActive ? '#22C55E' : '#E8E8E8'}
+          d='M7.5 0.234A7.266 7.266 0 0 1 14.766 7.5 7.266 7.266 0 0 1 7.5 14.766 7.266 7.266 0 0 1 0.234 7.5 7.266 7.266 0 0 1 7.5 0.234z'
+          strokeWidth={0.46875}
+        />
+      </svg>
+    )
+  }
+
   return (
-  <div className='relative'>
-    <svg width={32} height={32} viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'>
-      <rect
-        className='transition-all duration-500'
-        x={0.5}
-        y={0.5}
-        width={31}
-        height={31}
-        rx={15.5}
-        fill={isActive ? '#EDFBD8' : '#E8E8E8'}
-      />
-      <rect
-        className='transition-all duration-500'
-        x={0.5}
-        y={0.5}
-        width={31}
-        height={31}
-        rx={15.5}
-        stroke={isActive ? '#22C55E' : '#E8E8E8'}
-      />
-    </svg>
-    <span
-      className={`absolute  text-[14px] top-0 w-5 text-center translate-x-[30%] translate-y-[29%] ${
-        isActive ? `text-[#22C55E]` : `text-[#909090]`
-      }`}
+    <div className='relative'>
+      <svg width={32} height={32} viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <rect
+          className='transition-all duration-500'
+          x={0.5}
+          y={0.5}
+          width={31}
+          height={31}
+          rx={15.5}
+          fill={isActive ? '#EDFBD8' : '#E8E8E8'}
+        />
+        <rect
+          className='transition-all duration-500'
+          x={0.5}
+          y={0.5}
+          width={31}
+          height={31}
+          rx={15.5}
+          stroke={isActive ? '#22C55E' : '#E8E8E8'}
+        />
+      </svg>
+      <span
+        className={`absolute  text-[14px] top-0 w-5 text-center translate-x-[30%] translate-y-[29%] ${
+          isActive ? `text-[#22C55E]` : `text-[#909090]`
+        }`}
+      >
+        {index}
+      </span>
+    </div>
+  )
+}
+
+export const TestIcon = ({ index, isActive, isSuccess }: { index?: string; isActive: boolean; isSuccess: boolean }) => {
+  const isInactive = !isSuccess && !isActive
+  return (
+    <div
+      className={`relative z-10 grid place-items-center w-10 h-10 rounded-full ${
+        isInactive ? `bg-[#E8E8E8]` : `bg-[#22C55E]`
+      } ${isInactive ? `text-[#909090]` : `text-[#22C55E]`} transition-all duration-300 border-[#22C55E] border-2`}
     >
-      {isNaN(+index)?0:+index+1}
-    </span>
-  </div>
-)}
+      <FontAwesomeIcon icon={faCoffee} />
+    </div>
+  )
+}

@@ -6,15 +6,17 @@ export const Stepper = ({
   activeStep = 0,
   isFirstStep,
   isLastStep,
+  SuccededIcon,
 }: {
   children: React.ReactNode
   activeStep?: number
   isFirstStep: (value: boolean) => void
   isLastStep: (value: boolean) => void
+  SuccededIcon: React.FC
 }) => {
   const childrensCount = Children.count(children)
   const clonedChildrens = Children.map(children, (child, index) => {
-    if (isValidElement(child)) return cloneElement(child as JSX.Element, { activeStep, index })
+    if (isValidElement(child)) return cloneElement(child as JSX.Element, { activeStep, index, SuccededIcon })
     return child
   })
 

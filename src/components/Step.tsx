@@ -5,7 +5,7 @@ export const Step = ({
   onClick,
   activeStep = 0,
   index = 0,
-  SuccededIcon = DefaultIcon,
+  SucceededStep,
   children,
 }: {
   label: string
@@ -13,14 +13,14 @@ export const Step = ({
   activeStep?: number
   index?: number
   children?: string | JSX.Element
-  SuccededIcon?: React.FC
+  SucceededStep?: React.ReactElement<JSX.Element>
 }) => {
   const isActive = activeStep === index
   const isSucceeded = activeStep > index
   return (
     <div className={`flex flex-col items-center z-10 hover:cursor-pointer`} onClick={onClick}>
       {isSucceeded ? (
-        <SuccededIcon />
+        { SucceededStep }
       ) : (
         <StepIcon insideElement={children} isActive={isActive} isSucceeded={isSucceeded} />
       )}

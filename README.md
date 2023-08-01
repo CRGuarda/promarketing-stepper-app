@@ -14,15 +14,21 @@ yarn dev
 pnpm dev
 ```
 
-If you want check my repo, you will need start on `src/app/page.tsx`. The `layout.tsx` only have the next/font import for Poppins font and the metadata for Title and Description of the page.
+If you want check my repo, you will need start on `src/app/page.tsx`.
+
+The `layout.tsx` only have the necessary config for FA CSS on SSR and `next/font` import for Poppins font and the metadata for Title and Description of the page.
 
 ## Learn More
 
 By default are 5 Steps and the initialStep is 0 (first step). You can change this on `page.tsx`.
 
-This (**basic**) project is builded with React components (I didn't use third-party libraries for the logic of the Stepper).
+This (**basic**) project is builded with React components [I didn't use third-party libraries for the logic of the Stepper, except for Font Awesome (FA) React Library].
 
-I purposely didn't use FontAwesome as the SVG is needed in detail to be able to try to give the steps dynamic transitions.
+The Stepper Component have a SucceededIcon prop for a custom Succeeded Icon, by default have a `fa-check` icon.
+
+The Step component can have a number, string, FA Icon Component or null children.
+
+If you are using custom styles on your FA Icon children on the Step Component, the color of the icon is not going to change On Active. This feature is not completed yet.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

@@ -1,4 +1,6 @@
 'use client'
+import { DefaultIcon } from '@/components/Icons'
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 import { Children, cloneElement, isValidElement, useEffect } from 'react'
 
 export const Stepper = ({
@@ -6,17 +8,22 @@ export const Stepper = ({
   activeStep = 0,
   isFirstStep,
   isLastStep,
-  SuccededIcon,
+  SucceededIcon,
 }: {
   children: React.ReactNode
   activeStep?: number
   isFirstStep: (value: boolean) => void
   isLastStep: (value: boolean) => void
-  SuccededIcon: React.FC
+  SucceededIcon?: IconDefinition
 }) => {
   const childrensCount = Children.count(children)
   const clonedChildrens = Children.map(children, (child, index) => {
-    if (isValidElement(child)) return cloneElement(child as JSX.Element, { activeStep, index, SuccededIcon })
+    if (isValidElement(child))
+      return cloneElement(child as JSX.Element, {
+        activeStep,
+        index,
+        SucceededStep: <DefaultIcon succeededIcon={SucceededIcon} />,
+      })
     return child
   })
 

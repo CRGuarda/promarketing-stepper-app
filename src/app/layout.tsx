@@ -1,6 +1,10 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import { config } from '@fortawesome/fontawesome-svg-core'
+
+config.autoAddCss = false
 
 const poppins = Poppins({ subsets: ['latin'], weight: '400' })
 

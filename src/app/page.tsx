@@ -1,8 +1,10 @@
 'use client'
 import { Button } from '@/components/Button'
-import { DefaultIcon, TestIcon } from '@/components/Icons'
+import { DefaultIcon } from '@/components/Icons'
 import { Step } from '@/components/Step'
 import { Stepper } from '@/components/Stepper'
+import { faCoffee, faHouse } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState } from 'react'
 
 export default function Home() {
@@ -21,22 +23,17 @@ export default function Home() {
         isLastStep={(value) => setIsLastStep(value)}
         SuccededIcon={DefaultIcon}
       >
-        <Step label='Personal Info' onClick={() => setActiveStep(0)}>
-          1
+        <Step label='with FA icon' onClick={() => setActiveStep(0)}>
+          <FontAwesomeIcon icon={faCoffee} />
         </Step>
-        <Step label='Seat' onClick={() => setActiveStep(1)}>
-          2
+        <Step label='with FA icon 2' onClick={() => setActiveStep(1)}>
+          <FontAwesomeIcon icon={faHouse} />
         </Step>
-        <Step label='Review' onClick={() => setActiveStep(2)}>
-          3
-        </Step>
-        <Step label='Payment' onClick={() => setActiveStep(3)}>
+        <Step label='with text' onClick={() => setActiveStep(2)}></Step>
+        <Step label='with text' onClick={() => setActiveStep(3)}>
           4
         </Step>
-        <Step label='Confirmation' onClick={() => setActiveStep(4)}>
-          5
-        </Step>
-        <Step label='Extra' onClick={() => setActiveStep(5)} />
+        <Step label='with no children' onClick={() => setActiveStep(4)} />
       </Stepper>
       <div className='w-full flex justify-around mt-32'>
         <Button title='Atrás' onClick={handlePrev} disabled={isFirstStep} />

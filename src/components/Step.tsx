@@ -1,4 +1,4 @@
-import { ActiveIcon, DefaultIcon, TestIcon } from '@/components/Icons'
+import { DefaultIcon, StepIcon } from '@/components/Icons'
 
 export const Step = ({
   label,
@@ -12,18 +12,21 @@ export const Step = ({
   onClick: () => void
   activeStep?: number
   index?: number
-  children?: string
+  children?: string | JSX.Element
   SuccededIcon?: React.FC
 }) => {
   const isActive = activeStep === index
-  const isSuccess = activeStep > index
+  const isSucceeded = activeStep > index
   return (
     <div className={`flex flex-col items-center z-10 hover:cursor-pointer`} onClick={onClick}>
-      {isSuccess ? <SuccededIcon /> : <ActiveIcon index={children} isActive={isActive} />}
-      {isSuccess ? <SuccededIcon /> : <TestIcon index={children} isActive={isActive} isSuccess={isSuccess} />}
+      {isSucceeded ? (
+        <SuccededIcon />
+      ) : (
+        <StepIcon insideElement={children} isActive={isActive} isSucceeded={isSucceeded} />
+      )}
       <span
         className={`absolute top-[40px] text-xs sm:text-base ${
-          isSuccess || isActive ? `text-green-500` : `text-[#909090]`
+          isSucceeded || isActive ? `text-green-500` : `text-[#909090]`
         } ${isActive && `font-extrabold`} text-center`}
       >
         {label}

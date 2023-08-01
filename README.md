@@ -28,7 +28,11 @@ The Stepper Component have a SucceededIcon prop for a custom Succeeded Icon, by 
 
 The Step component can have a number, string, FA Icon Component or null children.
 
-If you are using custom styles on your FA Icon children on the Step Component, the color of the icon is not going to change On Active. This feature is not completed yet.
+You can find a comment on `page.tsx` inside of Stepper Component, is an example for a custom Succeeded Icon (for the example I'm using `fa-House` icon). This Stepper only accepts FA Icons from `@fortawesome/free-solid-svg-icons`.
+
+If you are using custom styles on your FA Icon children on the Step Component, the color of the icon is not going to change On Active transition. This feature is not completed yet.
+
+Please contact me if you encountered any bugs. :)
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

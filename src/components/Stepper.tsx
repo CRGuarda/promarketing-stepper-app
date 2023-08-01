@@ -18,12 +18,14 @@ export const Stepper = ({
 }) => {
   const childrensCount = Children.count(children)
   const clonedChildrens = Children.map(children, (child, index) => {
-    if (isValidElement(child))
-      return cloneElement(child as JSX.Element, {
+    if (isValidElement(child)) {
+      const newChild = cloneElement(child as JSX.Element, {
         activeStep,
         index,
         SucceededStep: <DefaultIcon succeededIcon={SucceededIcon} />,
       })
+      return newChild
+    }
     return child
   })
 

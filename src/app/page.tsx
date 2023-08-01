@@ -21,7 +21,7 @@ export default function Home() {
         activeStep={activeStep}
         isFirstStep={(value) => setIsFirstStep(value)}
         isLastStep={(value) => setIsLastStep(value)}
-        SucceededIcon={faHouse}
+        /* SucceededIcon={faHouse} */
       >
         <Step label='with FA icon' onClick={() => setActiveStep(0)}>
           <FontAwesomeIcon icon={faCoffee} />
